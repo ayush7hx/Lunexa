@@ -1,6 +1,6 @@
 module.exports = {
   token:
-    process.env.token || "",
+    process.env.TOKEN || "",
   prefix: "!",
   color: "#bb00ff",
   Mongo: "",
@@ -11,8 +11,8 @@ module.exports = {
   invite: "https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=8&integration_type=0&scope=bot",
   inviteTwo: "https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=8&integration_type=0&scope=bot",
   inviteThree: "https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=8&integration_type=0&scope=bot",
-  ssLink: "https://discord.gg/KyzAgk2GUr",
-  topGg: "https://discord.gg/KyzAgk2GUr",
+  ssLink: "https://discord.gg/ZksjxeuV",
+  topGg: "https://discord.gg/ZksjxeuV",
   topgg_Api: "",
   noprefixLog: "",
   cmd_log: "",
