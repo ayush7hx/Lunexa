@@ -1,13 +1,13 @@
 {
-  "name": "Abhi",
+  "name": "Lunexa",
   "version": "1.0.0",
-  "description": "",
+  "description": "A powerful Discord Music Bot",
   "main": "src/Lunexa.js",
   "scripts": {
     "start": "node src/Lunexa.js"
   },
-  "keywords": [],
-  "author": "Abhi",
+  "keywords": ["discord", "bot", "music"],
+  "author": "AYUSH7HX",
   "license": "ISC",
   "dependencies": {
     "@flytri/lyrics-finder": "^1.0.7",
