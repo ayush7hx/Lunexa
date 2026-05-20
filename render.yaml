@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: lunexa-bot
+    runtime: node
+    startCommand: npm start
+    buildCommand: npm install
+    autoDeploy: true
+    envVars:
+      - key: token
+        scope: run
+        isFile: false
