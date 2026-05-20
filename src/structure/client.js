@@ -39,7 +39,11 @@ class MainClient extends Client {
     this.aliases = new Collection();
     this.cluster = new ClusterClient(this);
     this.topgg = new Topgg.Api(this.config.topgg_Api);
-    this.error = new WebhookClient({ url: this.config.error_log });
+    
+    // ✅ FIX: Only create webhook if error_log is provided
+    this.error = this.config.error_log 
+      ? new WebhookClient({ url: this.config.error_log })
+      : null;
 
     console.log("[DEBUG] Lavalink nodes configuration:", this.config.nodes);
 
@@ -108,7 +112,7 @@ class MainClient extends Client {
     this.on("error", (error) => {
       console.error("[CLIENT_ERROR]", error);
       if (error.message && !error.message.includes("ChannelNotCached")) {
-        safeSendWebhook(this.error, `\`\`\`js\n${error.stack}\`\`\``);
+        if (this.error) safeSendWebhook(this.error, `\`\`\`js\n${error.stack}\`\`\``);
       }
     });
 
@@ -123,13 +127,13 @@ class MainClient extends Client {
       ) {
         console.log("[INFO] Known error handled:", error.message);
       } else {
-        safeSendWebhook(this.error, `\`\`\`js\n${error.stack}\`\`\``);
+        if (this.error) safeSendWebhook(this.error, `\`\`\`js\n${error.stack}\`\`\``);
       }
     });
 
     process.on("uncaughtException", (error) => {
       console.error("[UNCAUGHT_EXCEPTION]", error);
-      safeSendWebhook(this.error, `\`\`\`js\n${error.stack}\`\`\``);
+      if (this.error) safeSendWebhook(this.error, `\`\`\`js\n${error.stack}\`\`\``);
     });
 
     // ✅ Load handlers dynamically
