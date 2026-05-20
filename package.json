@@ -1,10 +1,10 @@
 {
-  "name": "Lunexa",
+  "name": "Alina",
   "version": "1.0.0",
   "description": "A powerful Discord Music Bot",
-  "main": "src/Lunexa.js",
+  "main": "src/Alina.js",
   "scripts": {
-    "start": "node src/Lunexa.js"
+    "start": "node src/Alina.js"
   },
   "keywords": ["discord", "bot", "music"],
   "author": "AYUSH7HX",
